@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block main %}
+	<div class="container pt">
+		<div class="row mt">
+			<div class="col-lg-6 col-lg-offset-3 centered">
+				<h3>{{ photos.theme }}</h3>
+				<hr>
+				<p>{{ theme.body }}</p>
+			</div>
+		</div>
+		{% for photo in photos %}
+			<div class="col-lg-4">
+				<a class="zoom green" href="{% url 'PhotographyBlog:work_detail' photo.id %}"><img class="img-responsive" src="{{ photo.photo.url }}" alt="" /></a>
+				<p>{{ photo.name }}</p>
+			</div>
+		{% endfor %}
+	</div><!-- /container -->
+{% endblock main %}

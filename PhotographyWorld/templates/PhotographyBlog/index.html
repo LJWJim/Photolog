@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+    {% block main %}
+	<!-- +++++ Welcome Section +++++ -->
+	<div id="ww">
+	    <div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2 centered">
+					<!--<img src="assets/img/user.png" alt="Stanley">-->
+                    
+					<h1>Hi, I'm {{ author.name }}</h1>
+
+					<p>{{ author.body }}</p>
+				
+				</div><!-- /col-lg-8 -->
+			</div><!-- /row -->
+	    </div> <!-- /container -->
+	</div><!-- /ww -->
+	
+	
+	<!-- +++++ Projects Section +++++ -->
+	
+	<div class="container pt">
+    
+		<div class="row mt centered">
+        {% for photo in photos %}
+			<div class="col-lg-4">
+				<a class="zoom green" href="{% url 'PhotographyBlog:work_detail' photo.id %}"><img class="img-responsive" src="{{ photo.photo.url }}" alt="" /></a>
+				<p>{{ photo.name }}</p>
+			</div>
+		{% endfor %}
+		</div><!-- /row -->
+	</div><!-- /container -->
+    {% endblock main %}
